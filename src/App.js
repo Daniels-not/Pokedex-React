@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import CardLoader from './components/CarLoader';
-import Search from './components/Search';
 
 function App() {
 
