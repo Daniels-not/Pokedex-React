@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Header from './components/Header';
+import CardLoader from './components/CarLoader';
+import Search from './components/Search';
 
 function App() {
+
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [search, setSearch] = useState('');
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const results = await axios(`https://pokeapi.co/api/v2/pokemon?limit=500`);
+
+        setPokemons(results.data.results);
+        console.log(results.data.results);
+      }
+      catch(error){
+        setError(error.message);
+        console.log(error.message);
+      }
+
+      setLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      {error ? <div>{error}</div> : null}
+      <CardLoader isLoading={loading} pokemons={pokemons}/>
     </div>
   );
 }

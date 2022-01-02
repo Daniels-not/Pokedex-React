@@ -1,0 +1,41 @@
+.search_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 1.5rem;
+}
+
+.input_container {
+    padding: 0.6rem 1.7rem;
+    padding-bottom: 0.8rem;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 500px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 1px 1px #e3e3e3;
+}
+
+.input_container input {
+    background: none;
+    border: none;
+    font-family: "Segoe UI", sans-serif;
+    outline: none;
+    font-size: 0.9em;
+    margin-inline: 1rem;
+}
+
+.input_container span {
+    width: 130%;
+    height: 3px;
+    position: absolute;
+    left: -10%;
+    top: 95%;
+    background: #868786;
+    transition: background 100ms;
+}
+
+.input input:focus ~ span {
+    background: #0067c0;
+}
+
