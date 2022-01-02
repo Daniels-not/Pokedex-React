@@ -1,5 +1,5 @@
-# Pokemon API 🎄🎁
-![index](https://github.com/Daniels-not/Rick-and-Morty-API/blob/main/preview.png)
+# Pokemon API 🎆
+![index](https://github.com/Daniels-not/Pokedex-React/blob/main/pokemon-api-preview.png)
 
 ## Functionalities ✨
 
